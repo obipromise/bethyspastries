@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <title>Bethy's Pastries - Secure Checkout</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="Bethy's Pastries, checkout, bakery order, secure payment, artisan pastries" name="keywords">
+        <meta content="Secure checkout for Bethy's Pastries. Complete your order for delicious artisan pastries." name="description">
+
+        <!-- Google Web Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@600;800&display=swap" rel="stylesheet"> 
+
+        <!-- Icon Font Stylesheet -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+        <!-- Libraries Stylesheet -->
+        <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+        <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+        <!-- Customized Bootstrap Stylesheet -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Template Stylesheet -->
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+
+    <body>
+
+        <!-- Spinner Start -->
+        <div id="spinner" class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50  d-flex align-items-center justify-content-center">
+            <div class="spinner-grow text-primary" role="status"></div>
+        </div>
+        <!-- Spinner End -->
+
+        <!-- Sidebar Backdrop -->
+        <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+        <!-- Mobile Sidebar -->
+        <div class="sidebar" id="mobileSidebar">
+            <div class="sidebar-header">
+                <h5>Menu</h5>
+                <button class="sidebar-close" id="sidebarClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="sidebar-body">
+                <div class="sidebar-nav">
+                    <a href="index.html" class="nav-link">
+                        <i class="fas fa-home"></i> Home
+                    </a>
+                    <a href="shop.html" class="nav-link">
+                        <i class="fas fa-bread-slice"></i> Our Pastries
+                    </a>
+                    <a href="cart.html" class="nav-link">
+                        <i class="fas fa-shopping-cart"></i> Shop Cart
+                        <span class="badge bg-secondary ms-2" id="mobileCartCount">3</span>
+                    </a>
+                    <a href="checkout.html" class="nav-link active">
+                        <i class="fas fa-cash-register"></i> Checkout
+                    </a>
+                    <a href="contact.html" class="nav-link">
+                        <i class="fas fa-envelope"></i> Contact us
+                    </a>
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-user"></i> My Account
+                    </a>
+                </div>
+                <div class="sidebar-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navbar start -->
+        <div class="container-fluid fixed-top">
+            <div class="container topbar bg-primary d-none d-lg-block">
+                <div class="d-flex justify-content-between">
+                    <div class="topinfo ps-2">
+                        <small class="me-3"><i class="fas fa-map-marker-alt me-2 text-secondary"></i> <a href="#" class="text-white">Addis Ababa, Ethiopia</a></small>
+                        <small class="me-3"><i class="fas fa-envelope me-2 text-secondary"></i><a href="#" class="text-white">orders@bethyspastries.com</a></small>
+                    </div>
+                    <div class="top-link pe-2">
+                        <a href="#" class="text-white"><small class="text-white mx-2">Privacy Policy</small>/</a>
+                        <a href="#" class="text-white"><small class="text-white mx-2">Terms of Use</small>/</a>
+                        <a href="#" class="text-white"><small class="text-white ms-2">Sales and Refunds</small></a>
+                    </div>
+                </div>
+            </div>
+            <div class="container px-0">
+                <nav class="navbar navbar-light bg-white navbar-expand-xl">
+                    <a href="index.html" class="navbar-brand"><h1 class="text-primary display-6">Bethy's Pastries</h1></a>
+                    
+                    <!-- Desktop Navigation -->
+                    <div class="collapse navbar-collapse bg-white desktop-nav">
+                        <div class="navbar-nav mx-auto">
+                            <a href="index.html" class="nav-item nav-link">Home</a>
+                            <a href="shop.html" class="nav-item nav-link">Our Pastries</a>
+                            <a href="cart.html" class="nav-item nav-link">Shop Cart</a>
+                            <a href="checkout.html" class="nav-item nav-link active">Checkout</a>
+                            <a href="contact.html" class="nav-item nav-link">Contact us</a>
+                        </div>
+                        <div class="d-flex m-3 me-0">
+                            <button class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search text-primary"></i></button>
+                            <a href="cart.html" class="position-relative me-4 my-auto">
+                                <i class="fa fa-shopping-bag fa-2x"></i>
+                                <span class="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-dark px-1" id="cartCount" style="top: -5px; left: 15px; height: 20px; min-width: 20px;">3</span>
+                            </a>
+                            <a href="#" class="my-auto">
+                                <i class="fas fa-user fa-2x"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Mobile Toggler -->
+                    <button class="navbar-toggler" type="button" id="mobileToggler">
+                        <span class="navbar-toggler-icon-custom"></span>
+                    </button>
+                    
+                    <!-- Mobile Icons (Visible only on mobile) -->
+                    <div class="d-flex d-xl-none m-3 me-0">
+                        <a href="cart.html" class="position-relative me-4 my-auto">
+                            <i class="fa fa-shopping-bag fa-2x text-primary"></i>
+                            <span class="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-white px-1" id="mobileCartIconCount" style="top: -5px; left: 15px; height: 20px; min-width: 20px;">3</span>
+                        </a>
+                        <button class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search text-primary"></i></button>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!-- Navbar End -->
+
+        <!-- Modal Search Start -->
+        <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-fullscreen">
+                <div class="modal-content rounded-0">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Search Our Pastries</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body d-flex align-items-center">
+                        <div class="input-group w-75 mx-auto d-flex">
+                            <input type="search" class="form-control p-3" placeholder="Search cakes, pastries, cookies..." aria-describedby="search-icon-1">
+                            <span id="search-icon-1" class="input-group-text p-3"><i class="fa fa-search"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal Search End -->
+
+        <!-- Single Page Header start -->
+        <div class="container-fluid page-header py-5">
+            <h1 class="text-center text-white display-6">Checkout</h1>
+            <ol class="breadcrumb justify-content-center mb-0">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="cart.html">Cart</a></li>
+                <li class="breadcrumb-item active text-white">Checkout</li>
+            </ol>
+        </div>
+        <!-- Single Page Header End -->
+
+        <!-- Checkout Page Start -->
+        <div class="container-fluid py-5">
+            <div class="container py-5">
+                <!-- Order Progress -->
+                <div class="row mb-5">
+                    <div class="col-12">
+                        <div class="progress-steps">
+                            <div class="d-flex justify-content-between position-relative">
+                                <div class="step completed">
+                                    <div class="step-circle">1</div>
+                                    <div class="step-label">Cart</div>
+                                </div>
+                                <div class="step active">
+                                    <div class="step-circle">2</div>
+                                    <div class="step-label">Checkout</div>
+                                </div>
+                                <div class="step">
+                                    <div class="step-circle">3</div>
+                                    <div class="step-label">Confirmation</div>
+                                </div>
+                                <div class="progress-line">
+                                    <div class="progress-bar" style="width: 50%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Security Banner -->
+                <div class="alert alert-success mb-5 d-flex align-items-center" role="alert">
+                    <i class="fas fa-shield-alt fa-2x me-3"></i>
+                    <div>
+                        <h5 class="alert-heading mb-1"><i class="fas fa-lock me-2"></i> Secure Checkout</h5>
+                        <p class="mb-0">Your payment information is encrypted and secure. We never store your credit card details.</p>
+                    </div>
+                </div>
+
+                <h1 class="mb-4">Complete Your Order</h1>
+                <form id="checkoutForm" onsubmit="return processOrder(event)">
+                    <div class="row g-5">
+                        <!-- Billing Details Column -->
+                        <div class="col-md-12 col-lg-6 col-xl-7">
+                            <div class="card border-0 shadow-sm mb-4">
+                                <div class="card-header bg-primary text-white">
+                                    <h5 class="mb-0"><i class="fas fa-user-circle me-2"></i> Customer Information</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12 col-lg-6">
+                                            <div class="form-item w-100">
+                                                <label class="form-label my-2">First Name <span class="text-danger">*</span></label>
+                                                <input type="text" class="form-control" id="firstName" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 col-lg-6">
+                                            <div class="form-item w-100">
+                                                <label class="form-label my-2">Last Name <span class="text-danger">*</span></label>
+                                                <input type="text" class="form-control" id="lastName" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-item">
+                                        <label class="form-label my-2">Email Address <span class="text-danger">*</span></label>
+                                        <input type="email" class="form-control" id="email" required>
+                                        <small class="text-muted">Order confirmation will be sent to this email</small>
+                                    </div>
+                                    
+                                    <div class="form-item">
+                                        <label class="form-label my-2">Phone Number <span class="text-danger">*</span></label>
+                                        <input type="tel" class="form-control" id="phone" required>
+                                        <small class="text-muted">For delivery updates and order confirmation</small>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Delivery Address -->
+                            <div class="card border-0 shadow-sm mb-4">
+                                <div class="card-header bg-primary text-white">
+                                    <h5 class="mb-0"><i class="fas fa-truck me-2"></i> Delivery Address</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="form-check mb-3">
+                                        <input class="form-check-input" type="checkbox" id="sameAsBilling">
+                                        <label class="form-check-label" for="sameAsBilling">
+                                            Same as billing information
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="form-item">
+                                        <label class="form-label my-2">Delivery Address <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" id="address" placeholder="House Number, Street, Woreda" required>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-item w-100">
+                                                <label class="form-label my-2">Sub-City <span class="text-danger">*</span></label>
+                                                <input type="text" class="form-control" id="subcity" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-item w-100">
+                                                <label class="form-label my-2">City <span class="text-danger">*</span></label>
+                                                <input type="text" class="form-control" id="city" value="Addis Ababa" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-item">
+                                        <label class="form-label my-2">Delivery Instructions (Optional)</label>
+                                        <textarea class="form-control" id="deliveryNotes" rows="3" placeholder="Gate code, landmarks, specific delivery time..."></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Delivery Time -->
+                            <div class="card border-0 shadow-sm mb-4">
+                                <div class="card-header bg-primary text-white">
+                                    <h5 class="mb-0"><i class="fas fa-clock me-2"></i> Delivery Time</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-item">
+                                                <label class="form-label my-2">Delivery Date <span class="text-danger">*</span></label>
+                                                <input type="date" class="form-control" id="deliveryDate" required min="">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-item">
+                                                <label class="form-label my-2">Preferred Time <span class="text-danger">*</span></label>
+                                                <select class="form-select" id="deliveryTime" required>
+                                                    <option value="">Select time slot</option>
+                                                    <option value="9-12">Morning (9:00 AM - 12:00 PM)</option>
+                                                    <option value="12-3">Afternoon (12:00 PM - 3:00 PM)</option>
+                                                    <option value="3-6">Evening (3:00 PM - 6:00 PM)</option>
+                                                    <option value="6-8">Late Evening (6:00 PM - 8:00 PM)</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="alert alert-info mt-3">
+                                        <small><i class="fas fa-info-circle me-1"></i> Orders placed before 2:00 PM can be delivered same day. Weekend deliveries may take longer.</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Order Summary Column -->
+                        <div class="col-md-12 col-lg-6 col-xl-5">
+                            <div class="sticky-top" style="top: 100px;">
+                                <!-- Order Summary -->
+                                <div class="card border-0 shadow-sm mb-4">
+                                    <div class="card-header bg-primary text-white">
+                                        <h5 class="mb-0"><i class="fas fa-receipt me-2"></i> Order Summary</h5>
+                                    </div>
+                                    <div class="card-body p-0">
+                                        <div class="table-responsive">
+                                            <table class="table mb-0">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Item</th>
+                                                        <th scope="col" class="text-end">Price</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="orderSummary">
+                                                    <!-- Items will be populated by JavaScript -->
+                                                    <tr>
+                                                        <td class="py-3">
+                                                            <div class="d-flex align-items-center">
+                                                                <img src="img/cake-item-1.jpg" class="img-fluid rounded me-3" style="width: 60px; height: 60px; object-fit: cover;" alt="Chocolate Fudge Cake">
+                                                                <div>
+                                                                    <p class="mb-1 fw-bold">Chocolate Fudge Cake</p>
+                                                                    <small class="text-muted">Qty: 1</small>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td class="py-3 text-end">450 Birr</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="py-3">
+                                                            <div class="d-flex align-items-center">
+                                                                <img src="img/pastry-item-1.jpg" class="img-fluid rounded me-3" style="width: 60px; height: 60px; object-fit: cover;" alt="Butter Croissants">
+                                                                <div>
+                                                                    <p class="mb-1 fw-bold">Butter Croissants</p>
+                                                                    <small class="text-muted">Qty: 2</small>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td class="py-3 text-end">240 Birr</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="py-3">
+                                                            <div class="d-flex align-items-center">
+                                                                <img src="img/pastry-item-3.jpg" class="img-fluid rounded me-3" style="width: 60px; height: 60px; object-fit: cover;" alt="Chocolate Chip Cookies">
+                                                                <div>
+                                                                    <p class="mb-1 fw-bold">Chocolate Chip Cookies</p>
+                                                                    <small class="text-muted">Qty: 1</small>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td class="py-3 text-end">90 Birr</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        
+                                        <div class="p-3 border-top">
+                                            <div class="d-flex justify-content-between mb-2">
+                                                <span>Subtotal</span>
+                                                <span class="fw-bold" id="subtotalAmount">780 Birr</span>
+                                            </div>
+                                            <div class="d-flex justify-content-between mb-2">
+                                                <span>Delivery Fee</span>
+                                                <span class="fw-bold text-success" id="deliveryAmount">0 Birr</span>
+                                            </div>
+                                            <div class="d-flex justify-content-between mb-2 d-none" id="couponRow">
+                                                <span>Coupon Discount</span>
+                                                <span class="fw-bold text-success" id="couponAmount">-0 Birr</span>
+                                            </div>
+                                            <div class="d-flex justify-content-between mb-2">
+                                                <span>Tax</span>
+                                                <span class="fw-bold" id="taxAmount">0 Birr</span>
+                                            </div>
+                                            <hr>
+                                            <div class="d-flex justify-content-between mb-3">
+                                                <h5 class="mb-0">Total</h5>
+                                                <h4 class="mb-0 text-primary" id="totalAmount">780 Birr</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Payment Method -->
+                                <div class="card border-0 shadow-sm mb-4">
+                                    <div class="card-header bg-primary text-white">
+                                        <h5 class="mb-0"><i class="fas fa-credit-card me-2"></i> Payment Method</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="form-check mb-3">
+                                            <input class="form-check-input" type="radio" name="paymentMethod" id="cod" value="cod" checked>
+                                            <label class="form-check-label" for="cod">
+                                                <i class="fas fa-money-bill-wave me-2"></i> Cash on Delivery
+                                            </label>
+                                            <div class="mt-2 ps-4">
+                                                <small class="text-muted">Pay when your order arrives. Only available for Addis Ababa.</small>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-check mb-3">
+                                            <input class="form-check-input" type="radio" name="paymentMethod" id="bankTransfer" value="bank">
+                                            <label class="form-check-label" for="bankTransfer">
+                                                <i class="fas fa-university me-2"></i> Bank Transfer
+                                            </label>
+                                            <div class="mt-2 ps-4">
+                                                <small class="text-muted">Transfer to our bank account. Order will be processed after payment confirmation.</small>
+                                                <div class="alert alert-light mt-2" id="bankDetails" style="display: none;">
+                                                    <p class="mb-1"><strong>Bank:</strong> Commercial Bank of Ethiopia</p>
+                                                    <p class="mb-1"><strong>Account Name:</strong> Bethy's Pastries</p>
+                                                    <p class="mb-1"><strong>Account Number:</strong> 10003456789</p>
+                                                    <p class="mb-0"><strong>Branch:</strong> Bole Branch</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-check mb-3">
+                                            <input class="form-check-input" type="radio" name="paymentMethod" id="teleBirr" value="telebirr">
+                                            <label class="form-check-label" for="teleBirr">
+                                                <i class="fas fa-mobile-alt me-2"></i> TeleBirr
+                                            </label>
+                                            <div class="mt-2 ps-4">
+                                                <small class="text-muted">Send payment to +251 911 234 567</small>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-check mb-3">
+                                            <input class="form-check-input" type="radio" name="paymentMethod" id="cbeBirr" value="cbebirr">
+                                            <label class="form-check-label" for="cbeBirr">
+                                                <i class="fas fa-mobile-alt me-2"></i> CBE Birr
+                                            </label>
+                                            <div class="mt-2 ps-4">
+                                                <small class="text-muted">Send payment to +251 911 234 567</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Terms & Conditions -->
+                                <div class="card border-0 shadow-sm mb-4">
+                                    <div class="card-body">
+                                        <div class="form-check mb-3">
+                                            <input class="form-check-input" type="checkbox" id="terms" required>
+                                            <label class="form-check-label" for="terms">
+                                                I agree to the <a href="#" data-bs-toggle="modal" data-bs-target="#termsModal">Terms & Conditions</a> and <a href="#" data-bs-toggle="modal" data-bs-target="#privacyModal">Privacy Policy</a>
+                                            </label>
+                                        </div>
+                                        
+                                        <div class="form-check mb-4">
+                                            <input class="form-check-input" type="checkbox" id="newsletter">
+                                            <label class="form-check-label" for="newsletter">
+                                                Subscribe to our newsletter for updates and special offers
+                                            </label>
+                                        </div>
+                                        
+                                        <div class="d-grid">
+                                            <button type="submit" class="btn btn-primary btn-lg rounded-pill py-3" id="placeOrderBtn">
+                                                <i class="fas fa-lock me-2"></i> Place Order Securely
+                                            </button>
+                                        </div>
+                                        
+                                        <div class="text-center mt-3">
+                                            <small class="text-muted">
+                                                <i class="fas fa-undo-alt me-1"></i> You can modify your order in the cart
+                                            </small>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Security Badges -->
+                                <div class="text-center">
+                                    <div class="d-flex justify-content-center mb-2">
+                                        <i class="fas fa-shield-alt fa-2x text-success me-2"></i>
+                                        <i class="fas fa-lock fa-2x text-success me-2"></i>
+                                        <i class="fas fa-check-circle fa-2x text-success"></i>
+                                    </div>
+                                    <small class="text-muted">100% Secure Checkout • SSL Encrypted • Trusted by 2,450+ Customers</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                
+                <!-- Need Help Section -->
+                <div class="row mt-5 pt-5 border-top">
+                    <div class="col-md-4">
+                        <div class="text-center p-4">
+                            <i class="fas fa-headset fa-3x text-primary mb-3"></i>
+                            <h5>Need Help?</h5>
+                            <p class="mb-2">Call us at <a href="tel:+251911234567">+251 911 234 567</a></p>
+                            <small class="text-muted">Mon-Sat: 7AM - 8PM</small>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="text-center p-4">
+                            <i class="fas fa-shipping-fast fa-3x text-primary mb-3"></i>
+                            <h5>Delivery Info</h5>
+                            <p class="mb-0">Free delivery on orders over 500 Birr</p>
+                            <small class="text-muted">Within Addis Ababa only</small>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="text-center p-4">
+                            <i class="fas fa-undo-alt fa-3x text-primary mb-3"></i>
+                            <h5>Return Policy</h5>
+                            <p class="mb-0">30-day satisfaction guarantee</p>
+                            <small class="text-muted">Freshness guaranteed or your money back</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Checkout Page End -->
+
+        <!-- Footer Start -->
+        <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5">
+            <div class="container py-5">
+                <div class="pb-4 mb-4" style="border-bottom: 1px solid rgba(218, 165, 32, 0.5) ;">
+                    <div class="row g-4">
+                        <div class="col-lg-3">
+                            <a href="index.html">
+                                <h1 class="text-primary mb-0">Bethy's Pastries</h1>
+                                <p class="text-secondary mb-0">Artisan Bakery & Online Store</p>
+                            </a>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="position-relative mx-auto">
+                                <input class="form-control border-0 w-100 py-3 px-4 rounded-pill" type="email" placeholder="Your Email Address" id="newsletterEmail">
+                                <button type="submit" class="btn btn-primary border-0 border-secondary py-3 px-4 position-absolute rounded-pill text-white" style="top: 0; right: 0;" onclick="subscribeNewsletter()">Subscribe</button>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="d-flex justify-content-end pt-3">
+                                <a class="btn btn-outline-secondary me-2 btn-md-square rounded-circle" href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-outline-secondary me-2 btn-md-square rounded-circle" href="#"><i class="fab fa-instagram"></i></a>
+                                <a class="btn btn-outline-secondary me-2 btn-md-square rounded-circle" href="#"><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-outline-secondary btn-md-square rounded-circle" href="#"><i class="fab fa-tiktok"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-5">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-item">
+                            <h4 class="text-light mb-3">Our Bakery Story</h4>
+                            <p class="mb-4">Founded with a passion for traditional baking, Bethy's Pastries brings you the finest artisan treats made with love and the highest quality ingredients. Every bite tells a story of craftsmanship.</p>
+                            <a href="about.html" class="btn border-secondary py-2 px-4 rounded-pill text-primary">Our Story</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="d-flex flex-column text-start footer-item">
+                            <h4 class="text-light mb-3">Quick Links</h4>
+                            <a class="btn-link" href="index.html">Home</a>
+                            <a class="btn-link" href="shop.html">Our Pastries</a>
+                            <a class="btn-link" href="about.html">About Us</a>
+                            <a class="btn-link" href="contact.html">Contact Us</a>
+                            <a class="btn-link" href="#">Delivery Info</a>
+                            <a class="btn-link" href="#">FAQs</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="d-flex flex-column text-start footer-item">
+                            <h4 class="text-light mb-3">Customer Care</h4>
+                            <a class="btn-link" href="cart.html">My Cart</a>
+                            <a class="btn-link" href="checkout.html">Checkout</a>
+                            <a class="btn-link" href="#">Order Tracking</a>
+                            <a class="btn-link" href="#">Return Policy</a>
+                            <a class="btn-link" href="#">Privacy Policy</a>
+                            <a class="btn-link" href="#">Terms & Conditions</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-item">
+                            <h4 class="text-light mb-3">Contact Info</h4>
+                            <p><i class="fas fa-map-marker-alt me-2 text-secondary"></i> Addis Ababa, Ethiopia</p>
+                            <p><i class="fas fa-envelope me-2 text-secondary"></i> orders@bethyspastries.com</p>
+                            <p><i class="fas fa-phone me-2 text-secondary"></i> +251 911 234 567</p>
+                            <p><i class="fas fa-clock me-2 text-secondary"></i> Mon-Sat: 7AM - 8PM</p>
+                            <p class="mt-3">We Accept</p>
+                            <img src="img/payment-methods.png" class="img-fluid" alt="Payment Methods">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End -->
+
+        <!-- Copyright Start -->
+        <div class="container-fluid copyright bg-dark py-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        <span class="text-light"><a href="#"><i class="fas fa-copyright text-light me-2"></i>Bethy's Pastries</a>, All rights reserved. 2024</span>
+                    </div>
+                    <div class="col-md-6 my-auto text-center text-md-end text-white">
+                        <!--/*** The author's attribution link must remain intact in the template. ***/-->
+                        <!--/*** If you wish to remove this credit link, please purchase the Pro Version . ***/-->
+                        Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Copyright End -->
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-primary border-3 border-primary rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>   
+
+        <!-- Terms Modal -->
+        <div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="termsModalLabel">Terms & Conditions</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h6>Order Acceptance</h6>
+                        <p>All orders are subject to acceptance and availability. Bethy's Pastries reserves the right to refuse any order.</p>
+                        
+                        <h6>Pricing</h6>
+                        <p>Prices are in Ethiopian Birr and include VAT where applicable. Prices are subject to change without notice.</p>
+                        
+                        <h6>Delivery</h6>
+                        <p>Delivery is available within Addis Ababa. Delivery times are estimates and not guaranteed. Same-day delivery available for orders placed before 2:00 PM.</p>
+                        
+                        <h6>Cancellation</h6>
+                        <p>Orders can be cancelled within 1 hour of placement. After 1 hour, a 50% cancellation fee applies.</p>
+                        
+                        <h6>Returns</h6>
+                        <p>Due to the perishable nature of our products, returns are only accepted for quality issues reported within 2 hours of delivery.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Privacy Modal -->
+        <div class="modal fade" id="privacyModal" tabindex="-1" aria-labelledby="privacyModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="privacyModalLabel">Privacy Policy</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h6>Information We Collect</h6>
+                        <p>We collect information you provide directly to us, such as when you create an account, place an order, or contact us.</p>
+                        
+                        <h6>How We Use Your Information</h6>
+                        <p>We use your information to process your orders, communicate with you, and improve our services.</p>
+                        
+                        <h6>Payment Information</h6>
+                        <p>We do not store credit card information. All payment information is processed through secure payment gateways.</p>
+                        
+                        <h6>Data Security</h6>
+                        <p>We implement reasonable security measures to protect your personal information.</p>
+                        
+                        <h6>Contact Us</h6>
+                        <p>For privacy-related questions, contact us at privacy@bethyspastries.com</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Order Success Modal -->
+        <div class="modal fade" id="orderSuccessModal" tabindex="-1" aria-labelledby="orderSuccessModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header bg-success text-white">
+                        <h5 class="modal-title" id="orderSuccessModalLabel"><i class="fas fa-check-circle me-2"></i> Order Confirmed!</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body text-center">
+                        <i class="fas fa-gift fa-4x text-success mb-4"></i>
+                        <h4 class="mb-3">Thank You for Your Order!</h4>
+                        <p class="mb-2">Your order <strong id="orderNumber">#BAKERY2024-001</strong> has been received.</p>
+                        <p class="mb-3">We'll send a confirmation email with your order details.</p>
+                        <div class="alert alert-info">
+                            <h6><i class="fas fa-truck me-2"></i> Estimated Delivery</h6>
+                            <p class="mb-0" id="estimatedDelivery">Today, 3:00 PM - 6:00 PM</p>
+                        </div>
+                    </div>
+                    <div class="modal-footer justify-content-center">
+                        <a href="index.html" class="btn btn-primary">Continue Shopping</a>
+                        <a href="#" class="btn btn-outline-primary">Track Order</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+    <!-- JavaScript Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+    
+    <!-- Mobile Sidebar Script -->
+    <script>
+        // Mobile sidebar functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileToggler = document.getElementById('mobileToggler');
+            const sidebarClose = document.getElementById('sidebarClose');
+            const mobileSidebar = document.getElementById('mobileSidebar');
+            const sidebarBackdrop = document.getElementById('sidebarBackdrop');
+            
+            // Open sidebar
+            mobileToggler.addEventListener('click', function() {
+                mobileSidebar.classList.add('show');
+                sidebarBackdrop.classList.add('show');
+                document.body.style.overflow = 'hidden';
+                mobileToggler.setAttribute('aria-expanded', 'true');
+            });
+            
+            // Close sidebar
+            function closeSidebar() {
+                mobileSidebar.classList.remove('show');
+                sidebarBackdrop.classList.remove('show');
+                document.body.style.overflow = '';
+                mobileToggler.setAttribute('aria-expanded', 'false');
+            }
+            
+            sidebarClose.addEventListener('click', closeSidebar);
+            sidebarBackdrop.addEventListener('click', closeSidebar);
+            
+            // Close sidebar when clicking on a link (optional)
+            const sidebarLinks = document.querySelectorAll('.sidebar-nav .nav-link');
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', closeSidebar);
+            });
+            
+            // Initialize checkout functionality
+            initializeCheckout();
+        });
+    </script>
+    
+    <!-- Checkout JavaScript -->
+    <script>
+        // Order data
+        let order = {
+            items: [
+                { id: 1, name: "Chocolate Fudge Cake", price: 450, quantity: 1, image: "img/cake-item-1.jpg" },
+                { id: 2, name: "Butter Croissants", price: 120, quantity: 2, image: "img/pastry-item-1.jpg" },
+                { id: 3, name: "Chocolate Chip Cookies", price: 90, quantity: 1, image: "img/pastry-item-3.jpg" }
+            ],
+            subtotal: 780,
+            delivery: 0,
+            coupon: null,
+            tax: 0,
+            total: 780
+        };
+        
+        function initializeCheckout() {
+            // Set minimum date for delivery (today)
+            const today = new Date();
+            const tomorrow = new Date(today);
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            
+            const formattedDate = tomorrow.toISOString().split('T')[0];
+            document.getElementById('deliveryDate').min = formattedDate;
+            document.getElementById('deliveryDate').value = formattedDate;
+            
+            // Setup event listeners
+            setupEventListeners();
+            
+            // Load order from localStorage if available
+            loadOrderFromStorage();
+            
+            // Update order summary
+            updateOrderSummary();
+        }
+        
+        function setupEventListeners() {
+            // Same as billing checkbox
+            document.getElementById('sameAsBilling').addEventListener('change', function() {
+                if (this.checked) {
+                    // Auto-fill delivery address with billing info
+                    document.getElementById('address').value = document.getElementById('firstName').value + 
+                                                              ' ' + document.getElementById('lastName').value + 
+                                                              ', Billing Address';
+                    document.getElementById('subcity').value = 'From billing';
+                }
+            });
+            
+            // Payment method changes
+            document.querySelectorAll('input[name="paymentMethod"]').forEach(radio => {
+                radio.addEventListener('change', function() {
+                    const bankDetails = document.getElementById('bankDetails');
+                    if (this.value === 'bank') {
+                        bankDetails.style.display = 'block';
+                    } else {
+                        bankDetails.style.display = 'none';
+                    }
+                });
+            });
+            
+            // Bank transfer radio
+            document.getElementById('bankTransfer').addEventListener('change', function() {
+                document.getElementById('bankDetails').style.display = 'block';
+            });
+            
+            // Form validation
+            document.getElementById('checkoutForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                processOrder(e);
+            });
+            
+            // Phone number formatting
+            document.getElementById('phone').addEventListener('input', function(e) {
+                let value = e.target.value.replace(/\D/g, '');
+                if (value.length > 0) {
+                    if (!value.startsWith('+251') && !value.startsWith('251')) {
+                        if (value.startsWith('0')) {
+                            value = '+251' + value.substring(1);
+                        } else {
+                            value = '+251' + value;
+                        }
+                    }
+                }
+                e.target.value = value;
+            });
+        }
+        
+        function loadOrderFromStorage() {
+            // Try to load order from localStorage
+            try {
+                const savedOrder = localStorage.getItem('bethysCart');
+                if (savedOrder) {
+                    const parsed = JSON.parse(savedOrder);
+                    if (parsed.items && parsed.items.length > 0) {
+                        order.items = parsed.items;
+                        calculateOrderTotals();
+                        updateOrderSummary();
+                    }
+                }
+            } catch (e) {
+                console.log('No saved order found');
+            }
+        }
+        
+        function calculateOrderTotals() {
+            // Calculate subtotal
+            order.subtotal = order.items.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            
+            // Calculate delivery (free over 500)
+            order.delivery = order.subtotal >= 500 ? 0 : 50;
+            
+            // Calculate tax (0% for now, can be adjusted)
+            order.tax = 0;
+            
+            // Calculate total
+            order.total = order.subtotal + order.delivery + order.tax;
+            
+            // Apply coupon if exists
+            if (order.coupon) {
+                if (order.coupon.type === 'percentage') {
+                    const discount = order.subtotal * (order.coupon.value / 100);
+                    order.total -= discount;
+                } else if (order.coupon.type === 'fixed') {
+                    order.total -= order.coupon.value;
+                }
+            }
+        }
+        
+        function updateOrderSummary() {
+            const orderSummary = document.getElementById('orderSummary');
+            const subtotalAmount = document.getElementById('subtotalAmount');
+            const deliveryAmount = document.getElementById('deliveryAmount');
+            const taxAmount = document.getElementById('taxAmount');
+            const totalAmount = document.getElementById('totalAmount');
+            const couponRow = document.getElementById('couponRow');
+            const couponAmount = document.getElementById('couponAmount');
+            
+            // Clear existing items
+            orderSummary.innerHTML = '';
+            
+            // Add items
+            order.items.forEach(item => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td class="py-3">
+                        <div class="d-flex align-items-center">
+                            <img src="${item.image}" class="img-fluid rounded me-3" style="width: 60px; height: 60px; object-fit: cover;" alt="${item.name}">
+                            <div>
+                                <p class="mb-1 fw-bold">${item.name}</p>
+                                <small class="text-muted">Qty: ${item.quantity}</small>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="py-3 text-end">${item.price * item.quantity} Birr</td>
+                `;
+                orderSummary.appendChild(row);
+            });
+            
+            // Update totals
+            calculateOrderTotals();
+            
+            subtotalAmount.textContent = `${order.subtotal} Birr`;
+            deliveryAmount.textContent = order.delivery === 0 ? 'FREE' : `${order.delivery} Birr`;
+            taxAmount.textContent = `${order.tax} Birr`;
+            totalAmount.textContent = `${order.total} Birr`;
+            
+            // Update coupon display
+            if (order.coupon) {
+                couponRow.classList.remove('d-none');
+                const discount = order.coupon.type === 'percentage' 
+                    ? order.subtotal * (order.coupon.value / 100)
+                    : order.coupon.value;
+                couponAmount.textContent = `-${discount} Birr`;
+            } else {
+                couponRow.classList.add('d-none');
+            }
+            
+            // Update cart count
+            const itemCount = order.items.reduce((sum, item) => sum + item.quantity, 0);
+            document.getElementById('cartCount').textContent = itemCount;
+            document.getElementById('mobileCartCount').textContent = itemCount;
+            document.getElementById('mobileCartIconCount').textContent = itemCount;
+        }
+        
+        function processOrder(event) {
+            event.preventDefault();
+            
+            // Get form data
+            const formData = {
+                firstName: document.getElementById('firstName').value,
+                lastName: document.getElementById('lastName').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                address: document.getElementById('address').value,
+                subcity: document.getElementById('subcity').value,
+                city: document.getElementById('city').value,
+                deliveryNotes: document.getElementById('deliveryNotes').value,
+                deliveryDate: document.getElementById('deliveryDate').value,
+                deliveryTime: document.getElementById('deliveryTime').value,
+                paymentMethod: document.querySelector('input[name="paymentMethod"]:checked').value,
+                subscribeNewsletter: document.getElementById('newsletter').checked,
+                orderItems: order.items,
+                orderTotal: order.total
+            };
+            
+            // Validate form
+            if (!validateForm(formData)) {
+                return false;
+            }
+            
+            // Disable submit button and show loading
+            const submitBtn = document.getElementById('placeOrderBtn');
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i> Processing...';
+            
+            // Simulate API call
+            setTimeout(() => {
+                // Generate order number
+                const orderNumber = 'BAKERY' + new Date().getFullYear() + '-' + 
+                                   String(Math.floor(Math.random() * 1000)).padStart(3, '0');
+                
+                // Show success modal
+                const estimatedDelivery = getDeliveryEstimate(formData.deliveryDate, formData.deliveryTime);
+                document.getElementById('orderNumber').textContent = `#${orderNumber}`;
+                document.getElementById('estimatedDelivery').textContent = estimatedDelivery;
+                
+                const orderSuccessModal = new bootstrap.Modal(document.getElementById('orderSuccessModal'));
+                orderSuccessModal.show();
+                
+                // Clear cart
+                localStorage.removeItem('bethysCart');
+                
+                // Reset button
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<i class="fas fa-lock me-2"></i> Place Order Securely';
+                
+                // Send confirmation email (simulated)
+                sendConfirmationEmail(formData, orderNumber);
+                
+            }, 2000);
+            
+            return false;
+        }
+        
+        function validateForm(formData) {
+            // Basic validation
+            if (!formData.firstName || !formData.lastName) {
+                showAlert('Please enter your full name', 'danger');
+                return false;
+            }
+            
+            if (!formData.email || !formData.email.includes('@')) {
+                showAlert('Please enter a valid email address', 'danger');
+                return false;
+            }
+            
+            if (!formData.phone || formData.phone.length < 10) {
+                showAlert('Please enter a valid phone number', 'danger');
+                return false;
+            }
+            
+            if (!formData.address) {
+                showAlert('Please enter your delivery address', 'danger');
+                return false;
+            }
+            
+            if (!formData.subcity) {
+                showAlert('Please enter your sub-city', 'danger');
+                return false;
+            }
+            
+            if (!formData.deliveryDate) {
+                showAlert('Please select a delivery date', 'danger');
+                return false;
+            }
+            
+            if (!formData.deliveryTime) {
+                showAlert('Please select a delivery time slot', 'danger');
+                return false;
+            }
+            
+            if (!document.getElementById('terms').checked) {
+                showAlert('Please accept the Terms & Conditions', 'danger');
+                return false;
+            }
+            
+            return true;
+        }
+        
+        function getDeliveryEstimate(date, timeSlot) {
+            const dateObj = new Date(date);
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const formattedDate = dateObj.toLocaleDateString('en-US', options);
+            
+            let timeText = '';
+            switch(timeSlot) {
+                case '9-12': timeText = '9:00 AM - 12:00 PM'; break;
+                case '12-3': timeText = '12:00 PM - 3:00 PM'; break;
+                case '3-6': timeText = '3:00 PM - 6:00 PM'; break;
+                case '6-8': timeText = '6:00 PM - 8:00 PM'; break;
+                default: timeText = 'your selected time';
+            }
+            
+            return `${formattedDate}, ${timeText}`;
+        }
+        
+        function sendConfirmationEmail(formData, orderNumber) {
+            // In a real implementation, this would call your backend API
+            console.log('Sending confirmation email to:', formData.email);
+            console.log('Order details:', {
+                orderNumber: orderNumber,
+                customer: `${formData.firstName} ${formData.lastName}`,
+                items: order.items.length,
+                total: order.total
+            });
+        }
+        
+        function showAlert(message, type) {
+            const alertDiv = document.createElement('div');
+            alertDiv.className = `alert alert-${type} alert-dismissible fade show position-fixed`;
+            alertDiv.style.top = '20px';
+            alertDiv.style.right = '20px';
+            alertDiv.style.zIndex = '9999';
+            alertDiv.style.maxWidth = '400px';
+            
+            alertDiv.innerHTML = `
+                <i class="fas fa-exclamation-circle me-2"></i> ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+            
+            document.body.appendChild(alertDiv);
+            
+            // Auto remove after 5 seconds
+            setTimeout(() => {
+                if (alertDiv.parentElement) {
+                    alertDiv.remove();
+                }
+            }, 5000);
+        }
+        
+        function subscribeNewsletter() {
+            const email = document.getElementById('newsletterEmail').value;
+            if (email && email.includes('@')) {
+                showAlert('Thank you for subscribing to our newsletter!', 'success');
+                document.getElementById('newsletterEmail').value = '';
+            } else {
+                showAlert('Please enter a valid email address', 'danger');
+            }
+        }
+        
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', initializeCheckout);
+    </script>
+    
+    <style>
+        /* Progress Steps */
+        .progress-steps {
+            padding: 20px 0;
+        }
+        
+        .step {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .step-circle {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+            font-weight: bold;
+            border: 3px solid #f0f0f0;
+            transition: all 0.3s ease;
+        }
+        
+        .step.active .step-circle {
+            background-color: var(--bs-primary);
+            color: white;
+            border-color: var(--bs-primary);
+        }
+        
+        .step.completed .step-circle {
+            background-color: var(--bs-secondary);
+            color: white;
+            border-color: var(--bs-secondary);
+        }
+        
+        .step-label {
+            font-weight: 600;
+            color: #666;
+        }
+        
+        .step.active .step-label {
+            color: var(--bs-primary);
+        }
+        
+        .step.completed .step-label {
+            color: var(--bs-secondary);
+        }
+        
+        .progress-line {
+            position: absolute;
+            top: 25px;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background-color: #f0f0f0;
+            z-index: 1;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background-color: var(--bs-secondary);
+            transition: width 0.3s ease;
+        }
+        
+        /* Form styling */
+        .form-item {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-label {
+            font-weight: 600;
+            color: var(--bs-dark);
+        }
+        
+        .form-control:focus {
+            border-color: var(--bs-primary);
+            box-shadow: 0 0 0 0.25rem rgba(212, 165, 116, 0.25);
+        }
+        
+        /* Card styling */
+        .card {
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        
+        .card-header {
+            border-radius: 0 !important;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .step-circle {
+                width: 40px;
+                height: 40px;
+                font-size: 0.9rem;
+            }
+            
+            .progress-line {
+                top: 20px;
+            }
+        }
+    </style>
+    </body>
+
+</html>

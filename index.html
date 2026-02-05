@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <title>Bethy's Pastries - Artisan Bakery & Online Shop</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="Bethy's Pastries, artisan bakery, fresh pastries, cakes, cookies, breads, online bakery shop" name="keywords">
+        <meta content="Bethy's Pastries - Artisan bakery offering fresh pastries, cakes, cookies, and breads. Order online for delivery or pickup." name="description">
+
+        <!-- Google Web Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@600;800&display=swap" rel="stylesheet"> 
+
+        <!-- Icon Font Stylesheet -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+        <!-- Libraries Stylesheet -->
+        <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+        <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+
+        <!-- Customized Bootstrap Stylesheet -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Template Stylesheet -->
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+
+    <body>
+
+        <!-- Spinner Start -->
+        <div id="spinner" class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50  d-flex align-items-center justify-content-center">
+            <div class="spinner-grow text-primary" role="status"></div>
+        </div>
+        <!-- Spinner End -->
+
+        <!-- Sidebar Backdrop -->
+        <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+        <!-- Mobile Sidebar -->
+        <div class="sidebar" id="mobileSidebar">
+            <div class="sidebar-header">
+                <h5>Menu</h5>
+                <button class="sidebar-close" id="sidebarClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="sidebar-body">
+                <div class="sidebar-nav">
+                    <a href="index.html" class="nav-link active">
+                        <i class="fas fa-home"></i> Home
+                    </a>
+                    <a href="shop.html" class="nav-link">
+                        <i class="fas fa-bread-slice"></i> Our Pastries
+                    </a>
+                    <a href="cart.html" class="nav-link">
+                        <i class="fas fa-shopping-cart"></i> Shop Cart
+                        <span class="badge bg-secondary ms-2" id="mobileCartCount">3</span>
+                    </a>
+                    <a href="checkout.html" class="nav-link">
+                        <i class="fas fa-cash-register"></i> Checkout
+                    </a>
+                    <a href="contact.html" class="nav-link">
+                        <i class="fas fa-envelope"></i> Contact us
+                    </a>
+                    <a href="#" class="nav-link" id="accountLink">
+                        <i class="fas fa-user"></i> My Account
+                    </a>
+                </div>
+                <div class="sidebar-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navbar start -->
+        <div class="container-fluid fixed-top">
+            <div class="container topbar bg-primary d-none d-lg-block">
+                <div class="d-flex justify-content-between">
+                    <div class="topinfo ps-2">
+                        <small class="me-3"><i class="fas fa-map-marker-alt me-2 text-secondary"></i> <a href="#" class="text-white">Addis Ababa, Ethiopia</a></small>
+                        <small class="me-3"><i class="fas fa-envelope me-2 text-secondary"></i><a href="#" class="text-white">orders@bethyspastries.com</a></small>
+                    </div>
+                    <div class="top-link pe-2">
+                        <a href="#" class="text-white"><small class="text-white mx-2">Privacy Policy</small>/</a>
+                        <a href="#" class="text-white"><small class="text-white mx-2">Terms of Use</small>/</a>
+                        <a href="#" class="text-white"><small class="text-white ms-2">Sales and Refunds</small></a>
+                    </div>
+                </div>
+            </div>
+            <div class="container px-0">
+                <nav class="navbar navbar-light bg-white navbar-expand-xl">
+                    <a href="index.html" class="navbar-brand"><h1 class="text-primary display-6">Bethy's Pastries</h1></a>
+                    
+                    <!-- Desktop Navigation -->
+                    <div class="collapse navbar-collapse bg-white desktop-nav">
+                        <div class="navbar-nav mx-auto">
+                            <a href="index.html" class="nav-item nav-link active">Home</a>
+                            <a href="shop.html" class="nav-item nav-link">Our Pastries</a>
+                            <a href="cart.html" class="nav-item nav-link">Shop Cart</a>
+                            <a href="checkout.html" class="nav-item nav-link">Checkout</a>
+                            <a href="contact.html" class="nav-item nav-link">Contact us</a>
+                        </div>
+                        <div class="d-flex m-3 me-0">
+                            <button class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search text-primary"></i></button>
+                            <a href="cart.html" class="position-relative me-4 my-auto">
+                                <i class="fa fa-shopping-bag fa-2x"></i>
+                                <span class="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-dark px-1" id="cartCount" style="top: -5px; left: 15px; height: 20px; min-width: 20px;">3</span>
+                            </a>
+                            <a href="#" class="my-auto" id="userAccount">
+                                <i class="fas fa-user fa-2x"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Mobile Toggler -->
+                    <button class="navbar-toggler" type="button" id="mobileToggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                        <span class="navbar-toggler-icon-custom"></span>
+                    </button>
+                    
+                    <!-- Mobile Icons (Visible only on mobile) -->
+                    <div class="d-flex d-xl-none m-3 me-0">
+                        <a href="cart.html" class="position-relative me-4 my-auto">
+                            <i class="fa fa-shopping-bag fa-2x text-primary"></i>
+                            <span class="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-white px-1" id="mobileCartIconCount" style="top: -5px; left: 15px; height: 20px; min-width: 20px;">3</span>
+                        </a>
+                        <button class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search text-primary"></i></button>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!-- Navbar End -->
+
+
+        <!-- Modal Search Start -->
+        <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-fullscreen">
+                <div class="modal-content rounded-0">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Search Our Pastries</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body d-flex align-items-center">
+                        <div class="input-group w-75 mx-auto d-flex">
+                            <input type="search" class="form-control p-3" placeholder="Search cakes, pastries, cookies..." aria-describedby="search-icon-1">
+                            <span id="search-icon-1" class="input-group-text p-3"><i class="fa fa-search"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal Search End -->
+
+
+        <!-- Hero Start -->
+        <div class="container-fluid py-5 mb-5 hero-header" style= "background-image: url('img/hero-image.jpg'); background: linear-gradient(rgba(212, 165, 116, 0.15), rgba(212, 165, 116, 0.15)), url('img/hero-image.jpg'); background-position: center center; background-repeat: no-repeat; background-size: cover;">
+            <div class="container py-5">
+                <div class="row g-5 align-items-center">
+                    <div class="col-md-12 col-lg-7">
+                        <h4 class="mb-3 text-secondary">100% Artisan Quality</h4>
+                        <h1 class="mb-5 display-3 text-primary">Freshly Baked Pastries & Cakes</h1>
+                        <div class="position-relative mx-auto">
+                            <input class="form-control border-2 border-secondary w-75 py-3 px-4 rounded-pill" type="search" placeholder="Search pastries, cakes, bread...">
+                            <button type="submit" class="btn btn-primary border-2 border-secondary py-3 px-4 position-absolute rounded-pill text-white h-100" style="top: 0; right: 25%;">Search</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Hero End -->
+
+
+        <!-- Features Section Start -->
+        <div class="container-fluid featurs py-5">
+            <div class="container py-5">
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="featurs-item text-center rounded bg-light p-4">
+                            <div class="featurs-icon btn-square rounded-circle bg-secondary mb-5 mx-auto">
+                                <i class="fas fa-shipping-fast fa-3x text-white"></i>
+                            </div>
+                            <div class="featurs-content text-center">
+                                <h5>Free Delivery</h5>
+                                <p class="mb-0">Free on orders over 500 Birr</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="featurs-item text-center rounded bg-light p-4">
+                            <div class="featurs-icon btn-square rounded-circle bg-secondary mb-5 mx-auto">
+                                <i class="fas fa-lock fa-3x text-white"></i>
+                            </div>
+                            <div class="featurs-content text-center">
+                                <h5>Secure Payments</h5>
+                                <p class="mb-0">100% secure payment processing</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="featurs-item text-center rounded bg-light p-4">
+                            <div class="featurs-icon btn-square rounded-circle bg-secondary mb-5 mx-auto">
+                                <i class="fas fa-undo-alt fa-3x text-white"></i>
+                            </div>
+                            <div class="featurs-content text-center">
+                                <h5>Satisfaction Guarantee</h5>
+                                <p class="mb-0">30-day money-back guarantee</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="featurs-item text-center rounded bg-light p-4">
+                            <div class="featurs-icon btn-square rounded-circle bg-secondary mb-5 mx-auto">
+                                <i class="fas fa-headset fa-3x text-white"></i>
+                            </div>
+                            <div class="featurs-content text-center">
+                                <h5>24/7 Support</h5>
+                                <p class="mb-0">Fast customer support anytime</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Features Section End -->
+
+
+        <!-- Pastry Shop Start-->
+        <div class="container-fluid fruite py-5">
+            <div class="container py-5">
+                <div class="tab-class text-center">
+                    <div class="row g-4">
+                        <div class="col-lg-4 text-start">
+                            <h1>Our Artisan Pastries</h1>
+                        </div>
+                        <div class="col-lg-8 text-end">
+                            <ul class="nav nav-pills d-inline-flex text-center mb-5">
+                                <li class="nav-item">
+                                    <a class="d-flex m-2 py-2 bg-light rounded-pill active category-filter" data-category="all" href="#">
+                                        <span class="text-dark" style="width: 130px;">All Items</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="d-flex py-2 m-2 bg-light rounded-pill category-filter" data-category="cakes" href="#">
+                                        <span class="text-dark" style="width: 130px;">Cakes</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="d-flex m-2 py-2 bg-light rounded-pill category-filter" data-category="pastries" href="#">
+                                        <span class="text-dark" style="width: 130px;">Pastries</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="d-flex m-2 py-2 bg-light rounded-pill category-filter" data-category="cookies" href="#">
+                                        <span class="text-dark" style="width: 130px;">Cookies</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="d-flex m-2 py-2 bg-light rounded-pill category-filter" data-category="breads" href="#">
+                                        <span class="text-dark" style="width: 130px;">Breads</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="tab-content">
+                        <!-- All Items Tab -->
+                        <div id="tab-1" class="tab-pane fade show p-0 active">
+                            <div class="row g-4">
+                                <div class="col-lg-12">
+                                    <div class="row g-4">
+                                        <!-- Chocolate Fudge Cake -->
+                                        <div class="col-md-6 col-lg-4 col-xl-3">
+                                            <div class="rounded position-relative fruite-item product-card" data-category="cakes" data-id="1" data-name="Chocolate Fudge Cake" data-price="450" data-image="img/cake-item-1.jpg">
+                                                <div class="fruite-img">
+                                                    <img src="img/cake-item-1.jpg" class="img-fluid w-100 rounded-top" alt="Chocolate Cake">
+                                                </div>
+                                                <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Cakes</div>
+                                                <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                                                    <h4>Chocolate Fudge Cake</h4>
+                                                    <p>Rich chocolate cake with creamy fudge frosting, perfect for celebrations.</p>
+                                                    <div class="d-flex justify-content-between flex-lg-wrap">
+                                                        <p class="text-dark fs-5 fw-bold mb-0">450 Birr</p>
+                                                        <button class="btn border border-secondary rounded-pill px-3 text-primary add-to-cart-btn" 
+                                                                data-id="1" 
+                                                                data-name="Chocolate Fudge Cake" 
+                                                                data-price="450" 
+                                                                data-image="img/cake-item-1.jpg">
+                                                            <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Butter Croissants -->
+                                        <div class="col-md-6 col-lg-4 col-xl-3">
+                                            <div class="rounded position-relative fruite-item product-card" data-category="pastries" data-id="2" data-name="Butter Croissants" data-price="120" data-image="img/pastry-item-1.jpg">
+                                                <div class="fruite-img">
+                                                    <img src="img/pastry-item-1.jpg" class="img-fluid w-100 rounded-top" alt="French Croissants">
+                                                </div>
+                                                <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Pastries</div>
+                                                <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                                                    <h4>Butter Croissants</h4>
+                                                    <p>Flaky, buttery croissants baked fresh every morning. Perfect with coffee.</p>
+                                                    <div class="d-flex justify-content-between flex-lg-wrap">
+                                                        <p class="text-dark fs-5 fw-bold mb-0">120 Birr</p>
+                                                        <button class="btn border border-secondary rounded-pill px-3 text-primary add-to-cart-btn" 
+                                                                data-id="2" 
+                                                                data-name="Butter Croissants" 
+                                                                data-price="120" 
+                                                                data-image="img/pastry-item-1.jpg">
+                                                            <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Vanilla Bean Cupcakes -->
+                                        <div class="col-md-6 col-lg-4 col-xl-3">
+                                            <div class="rounded position-relative fruite-item product-card" data-category="cakes" data-id="3" data-name="Vanilla Bean Cupcakes" data-price="65" data-image="img/cake-item-3.jpg">
+                                                <div class="fruite-img">
+                                                    <img src="img/cake-item-3.jpg" class="img-fluid w-100 rounded-top" alt="Vanilla Cupcakes">
+                                                </div>
+                                                <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Cakes</div>
+                                                <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                                                    <h4>Vanilla Bean Cupcakes</h4>
+                                                    <p>Moist vanilla cupcakes with real vanilla bean and creamy buttercream.</p>
+                                                    <div class="d-flex justify-content-between flex-lg-wrap">
+                                                        <p class="text-dark fs-5 fw-bold mb-0">65 Birr</p>
+                                                        <button class="btn border border-secondary rounded-pill px-3 text-primary add-to-cart-btn" 
+                                                                data-id="3" 
+                                                                data-name="Vanilla Bean Cupcakes" 
+                                                                data-price="65" 
+                                                                data-image="img/cake-item-3.jpg">
+                                                            <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Sourdough Loaf -->
+                                        <div class="col-md-6 col-lg-4 col-xl-3">
+                                            <div class="rounded position-relative fruite-item product-card" data-category="breads" data-id="4" data-name="Sourdough Loaf" data-price="180" data-image="img/pastry-item-2.jpg">
+                                                <div class="fruite-img">
+                                                    <img src="img/pastry-item-2.jpg" class="img-fluid w-100 rounded-top" alt="Artisan Bread">
+                                                </div>
+                                                <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Breads</div>
+                                                <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                                                    <h4>Sourdough Loaf</h4>
+                                                    <p>Traditional sourdough bread with crispy crust and soft, airy interior.</p>
+                                                    <div class="d-flex justify-content-between flex-lg-wrap">
+                                                        <p class="text-dark fs-5 fw-bold mb-0">180 Birr</p>
+                                                        <button class="btn border border-secondary rounded-pill px-3 text-primary add-to-cart-btn" 
+                                                                data-id="4" 
+                                                                data-name="Sourdough Loaf" 
+                                                                data-price="180" 
+                                                                data-image="img/pastry-item-2.jpg">
+                                                            <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Chocolate Chip Cookies -->
+                                        <div class="col-md-6 col-lg-4 col-xl-3">
+                                            <div class="rounded position-relative fruite-item product-card" data-category="cookies" data-id="5" data-name="Chocolate Chip Cookies" data-price="90" data-image="img/pastry-item-3.jpg">
+                                                <div class="fruite-img">
+                                                    <img src="img/pastry-item-3.jpg" class="img-fluid w-100 rounded-top" alt="Chocolate Chip Cookies">
+                                                </div>
+                                                <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Cookies</div>
+                                                <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                                                    <h4>Chocolate Chip Cookies</h4>
+                                                    <p>Classic cookies loaded with chocolate chips, crispy edges, chewy center.</p>
+                                                    <div class="d-flex justify-content-between flex-lg-wrap">
+                                                        <p class="text-dark fs-5 fw-bold mb-0">90 Birr</p>
+                                                        <button class="btn border border-secondary rounded-pill px-3 text-primary add-to-cart-btn" 
+                                                                data-id="5" 
+                                                                data-name="Chocolate Chip Cookies" 
+                                                                data-price="90" 
+                                                                data-image="img/pastry-item-3.jpg">
+                                                            <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Red Velvet Cake -->
+                                        <div class="col-md-6 col-lg-4 col-xl-3">
+                                            <div class="rounded position-relative fruite-item product-card" data-category="cakes" data-id="6" data-name="Red Velvet Cake" data-price="480" data-image="img/cake-item-2.webp">
+                                                <div class="fruite-img">
+                                                    <img src="img/cake-item-2.webp" class="img-fluid w-100 rounded-top" alt="Red Velvet Cake">
+                                                </div>
+                                                <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Cakes</div>
+                                                <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                                                    <h4>Red Velvet Cake</h4>
+                                                    <p>Classic red velvet with cream cheese frosting. A customer favorite.</p>
+                                                    <div class="d-flex justify-content-between flex-lg-wrap">
+                                                        <p class="text-dark fs-5 fw-bold mb-0">480 Birr</p>
+                                                        <button class="btn border border-secondary rounded-pill px-3 text-primary add-to-cart-btn" 
+                                                                data-id="6" 
+                                                                data-name="Red Velvet Cake" 
+                                                                data-price="480" 
+                                                                data-image="img/cake-item-2.webp">
+                                                            <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Assorted Donuts -->
+                                        <div class="col-md-6 col-lg-4 col-xl-3">
+                                            <div class="rounded position-relative fruite-item product-card" data-category="pastries" data-id="7" data-name="Assorted Donuts" data-price="150" data-image="img/promo-1.jpg">
+                                                <div class="fruite-img">
+                                                    <img src="img/promo-1.jpg" class="img-fluid w-100 rounded-top" alt="Assorted Donuts">
+                                                </div>
+                                                <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Pastries</div>
+                                                <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                                                    <h4>Assorted Donuts</h4>
+                                                    <p>Freshly made donuts with various glazes and toppings. Perfect for sharing.</p>
+                                                    <div class="d-flex justify-content-between flex-lg-wrap">
+                                                        <p class="text-dark fs-5 fw-bold mb-0">150 Birr</p>
+                                                        <button class="btn border border-secondary rounded-pill px-3 text-primary add-to-cart-btn" 
+                                                                data-id="7" 
+                                                                data-name="Assorted Donuts" 
+                                                                data-price="150" 
+                                                                data-image="img/promo-1.jpg">
+                                                            <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Apple Crumble Pie -->
+                                        <div class="col-md-6 col-lg-4 col-xl-3">
+                                            <div class="rounded position-relative fruite-item product-card" data-category="pastries" data-id="8" data-name="Apple Crumble Pie" data-price="320" data-image="img/promo-2.jpg">
+                                                <div class="fruite-img">
+                                                    <img src="img/promo-2.jpg" class="img-fluid w-100 rounded-top" alt="Apple Pie">
+                                                </div>
+                                                <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Pastries</div>
+                                                <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                                                    <h4>Apple Crumble Pie</h4>
+                                                    <p>Homemade apple pie with cinnamon crumble topping. Serve warm.</p>
+                                                    <div class="d-flex justify-content-between flex-lg-wrap">
+                                                        <p class="text-dark fs-5 fw-bold mb-0">320 Birr</p>
+                                                        <button class="btn border border-secondary rounded-pill px-3 text-primary add-to-cart-btn" 
+                                                                data-id="8" 
+                                                                data-name="Apple Crumble Pie" 
+                                                                data-price="320" 
+                                                                data-image="img/promo-2.jpg">
+                                                            <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>      
+            </div>
+        </div>
+        <!-- Pastry Shop End-->
+
+        <!-- Promo Banners Start -->
+        <div class="container-fluid service py-5">
+            <div class="container py-5">
+                <div class="row g-4 justify-content-center">
+                    <div class="col-md-6 col-lg-4">
+                        <a href="#" class="promo-link" data-promo="cakes20">
+                            <div class="service-item bg-secondary rounded border border-secondary">
+                                <img src="img/freshly-baked-cakes.jpeg" class="img-fluid rounded-top w-100" alt="Freshly Baked Cakes">
+                                <div class="px-4 rounded-bottom">
+                                    <div class="service-content bg-primary text-center p-4 rounded">
+                                        <h5 class="text-white">Freshly Baked Cakes</h5>
+                                        <h3 class="mb-0">20% OFF</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <a href="#" class="promo-link" data-promo="cupcakes-free-delivery">
+                            <div class="service-item bg-dark rounded border border-dark">
+                                <img src="img/cupcakes.jpg" class="img-fluid rounded-top w-100" alt="Artisan Pastries">
+                                <div class="px-4 rounded-bottom">
+                                    <div class="service-content bg-light text-center p-4 rounded">
+                                        <h5 class="text-primary">Cupcakes</h5>
+                                        <h3 class="mb-0">Free Delivery</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <a href="#" class="promo-link" data-promo="bread-save">
+                            <div class="service-item bg-primary rounded border border-primary">
+                                <img src="img/bread.jpg" class="img-fluid rounded-top w-100" alt="Fresh Bread">
+                                <div class="px-4 rounded-bottom">
+                                    <div class="service-content bg-secondary text-center p-4 rounded">
+                                        <h5 class="text-white">Fresh Bread Daily</h5>
+                                        <h3 class="mb-0">Save 150 Birr</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Promo Banners End -->
+
+        <!-- Featured Pastries Start-->
+        <div class="container-fluid vesitable py-5">
+            <div class="container py-5">
+                <h1 class="mb-0">Customer Favorites</h1>
+                <p class="text-secondary mb-4">Our most popular items, always fresh and delicious</p>
+                <div class="owl-carousel vegetable-carousel justify-content-center">
+                    <!-- Chocolate Croissants -->
+                    <div class="border border-primary rounded position-relative vesitable-item product-card" data-category="pastries" data-id="9" data-name="Chocolate Croissants" data-price="85" data-image="img/croissant-item-1.webp">
+                        <div class="vesitable-img">
+                            <img src="img/croissant-item-1.webp" class="img-fluid w-100 rounded-top" alt="Chocolate Croissants">
+                        </div>
+                        <div class="text-white bg-primary px-3 py-1 rounded position-absolute" style="top: 10px; right: 10px;">Pastry</div>
+                        <div class="p-4 rounded-bottom">
+                            <h4>Chocolate Croissants</h4>
+                            <p>Flaky croissants filled with rich chocolate, baked fresh every morning.</p>
+                            <div class="d-flex justify-content-between flex-lg-wrap">
+                                <p class="text-dark fs-5 fw-bold mb-0">85 Birr</p>
+                                <button class="btn border border-secondary rounded-pill px-3 text-primary add-to-cart-btn" 
+                                        data-id="9" 
+                                        data-name="Chocolate Croissants" 
+                                        data-price="85" 
+                                        data-image="img/croissant-item-1.webp">
+                                    <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- French Macarons -->
+                    <div class="border border-primary rounded position-relative vesitable-item product-card" data-category="pastries" data-id="10" data-name="French Macarons" data-price="280" data-image="img/macaron-item-1.avif">
+                        <div class="vesitable-img">
+                            <img src="img/macaron-item-1.avif" class="img-fluid w-100 rounded-top" alt="French Macarons">
+                        </div>
+                        <div class="text-white bg-primary px-3 py-1 rounded position-absolute" style="top: 10px; right: 10px;">Pastry</div>
+                        <div class="p-4 rounded-bottom">
+                            <h4>French Macarons</h4>
+                            <p>Delicate almond macarons in assorted flavors: raspberry, pistachio, vanilla.</p>
+                            <div class="d-flex justify-content-between flex-lg-wrap">
+                                <p class="text-dark fs-5 fw-bold mb-0">280 Birr</p>
+                                <button class="btn border border-secondary rounded-pill px-3 text-primary add-to-cart-btn" 
+                                        data-id="10" 
+                                        data-name="French Macarons" 
+                                        data-price="280" 
+                                        data-image="img/macaron-item-1.avif">
+                                    <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Cinnamon Rolls -->
+                    <div class="border border-primary rounded position-relative vesitable-item product-card" data-category="pastries" data-id="11" data-name="Cinnamon Rolls" data-price="110" data-image="img/cinnamon-rolls.webp">
+                        <div class="vesitable-img">
+                            <img src="img/cinnamon-rolls.webp" class="img-fluid w-100 rounded-top bg-light" alt="Cinnamon Rolls">
+                        </div>
+                        <div class="text-white bg-primary px-3 py-1 rounded position-absolute" style="top: 10px; right: 10px;">Pastry</div>
+                        <div class="p-4 rounded-bottom">
+                            <h4>Cinnamon Rolls</h4>
+                            <p>Soft, fluffy rolls with cinnamon sugar and cream cheese icing.</p>
+                            <div class="d-flex justify-content-between flex-lg-wrap">
+                                <p class="text-dark fs-5 fw-bold mb-0">110 Birr</p>
+                                <button class="btn border border-secondary rounded-pill px-3 text-primary add-to-cart-btn" 
+                                        data-id="11" 
+                                        data-name="Cinnamon Rolls" 
+                                        data-price="110" 
+                                        data-image="img/cinnamon-rolls.webp">
+                                    <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- New York Cheesecake -->
+                    <div class="border border-primary rounded position-relative vesitable-item product-card" data-category="cakes" data-id="12" data-name="New York Cheesecake" data-price="520" data-image="img/cheesecake-item.webp">
+                        <div class="vesitable-img">
+                            <img src="img/cheesecake-item.webp" class="img-fluid w-100 rounded-top" alt="New York Cheesecake">
+                        </div>
+                        <div class="text-white bg-primary px-3 py-1 rounded position-absolute" style="top: 10px; right: 10px;">Cake</div>
+                        <div class="p-4 rounded-bottom">
+                            <h4>New York Cheesecake</h4>
+                            <p>Classic creamy cheesecake with graham cracker crust and berry compote.</p>
+                            <div class="d-flex justify-content-between flex-lg-wrap">
+                                <p class="text-dark fs-5 fw-bold mb-0">520 Birr</p>
+                                <button class="btn border border-secondary rounded-pill px-3 text-primary add-to-cart-btn" 
+                                        data-id="12" 
+                                        data-name="New York Cheesecake" 
+                                        data-price="520" 
+                                        data-image="img/cheesecake-item.webp">
+                                    <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Fudge Brownies -->
+                    <div class="border border-primary rounded position-relative vesitable-item product-card" data-category="cookies" data-id="13" data-name="Fudge Brownies" data-price="95" data-image="img/brownie-item.jpg">
+                        <div class="vesitable-img">
+                            <img src="img/brownie-item.jpg" class="img-fluid w-100 rounded-top" alt="Fudge Brownies">
+                        </div>
+                        <div class="text-white bg-primary px-3 py-1 rounded position-absolute" style="top: 10px; right: 10px;">Treat</div>
+                        <div class="p-4 rounded-bottom">
+                            <h4>Fudge Brownies</h4>
+                            <p>Dense, chocolatey brownies with walnuts and chocolate chunks.</p>
+                            <div class="d-flex justify-content-between flex-lg-wrap">
+                                <p class="text-dark fs-5 fw-bold mb-0">95 Birr</p>
+                                <button class="btn border border-secondary rounded-pill px-3 text-primary add-to-cart-btn" 
+                                        data-id="13" 
+                                        data-name="Fudge Brownies" 
+                                        data-price="95" 
+                                        data-image="img/brownie-item.jpg">
+                                    <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Fruit Danish -->
+                    <div class="border border-primary rounded position-relative vesitable-item product-card" data-category="pastries" data-id="14" data-name="Fruit Danish" data-price="105" data-image="img/danish-item.webp">
+                        <div class="vesitable-img">
+                            <img src="img/danish-item.webp" class="img-fluid w-100 rounded-top" alt="Fruit Danish">
+                        </div>
+                        <div class="text-white bg-primary px-3 py-1 rounded position-absolute" style="top: 10px; right: 10px;">Pastry</div>
+                        <div class="p-4 rounded-bottom">
+                            <h4>Fruit Danish</h4>
+                            <p>Flaky pastry filled with cream cheese and topped with seasonal fruits.</p>
+                            <div class="d-flex justify-content-between flex-lg-wrap">
+                                <p class="text-dark fs-5 fw-bold mb-0">105 Birr</p>
+                                <button class="btn border border-secondary rounded-pill px-3 text-primary add-to-cart-btn" 
+                                        data-id="14" 
+                                        data-name="Fruit Danish" 
+                                        data-price="105" 
+                                        data-image="img/danish-item.webp">
+                                    <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Blueberry Muffins -->
+                    <div class="border border-primary rounded position-relative vesitable-item product-card" data-category="pastries" data-id="15" data-name="Blueberry Muffins" data-price="75" data-image="img/muffin-item.jpg">
+                        <div class="vesitable-img">
+                            <img src="img/muffin-item.jpg" class="img-fluid w-100 rounded-top" alt="Blueberry Muffins">
+                        </div>
+                        <div class="text-white bg-primary px-3 py-1 rounded position-absolute" style="top: 10px; right: 10px;">Pastry</div>
+                        <div class="p-4 rounded-bottom">
+                            <h4>Blueberry Muffins</h4>
+                            <p>Moist muffins bursting with fresh blueberries and a sugar crust topping.</p>
+                            <div class="d-flex justify-content-between flex-lg-wrap">
+                                <p class="text-dark fs-5 fw-bold mb-0">75 Birr</p>
+                                <button class="btn border border-secondary rounded-pill px-3 text-primary add-to-cart-btn" 
+                                        data-id="15" 
+                                        data-name="Blueberry Muffins" 
+                                        data-price="75" 
+                                        data-image="img/muffin-item.jpg">
+                                    <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Chocolate Eclairs -->
+                    <div class="border border-primary rounded position-relative vesitable-item product-card" data-category="pastries" data-id="16" data-name="Chocolate Eclairs" data-price="120" data-image="img/eclair-item.webp">
+                        <div class="vesitable-img">
+                            <img src="img/eclair-item.webp" class="img-fluid w-100 rounded-top" alt="Chocolate Eclairs">
+                        </div>
+                        <div class="text-white bg-primary px-3 py-1 rounded position-absolute" style="top: 10px; right: 10px;">Pastry</div>
+                        <div class="p-4 rounded-bottom">
+                            <h4>Chocolate Eclairs</h4>
+                            <p>Light choux pastry filled with vanilla cream and dipped in chocolate.</p>
+                            <div class="d-flex justify-content-between flex-lg-wrap">
+                                <p class="text-dark fs-5 fw-bold mb-0">120 Birr</p>
+                                <button class="btn border border-secondary rounded-pill px-3 text-primary add-to-cart-btn" 
+                                        data-id="16" 
+                                        data-name="Chocolate Eclairs" 
+                                        data-price="120" 
+                                        data-image="img/eclair-item.webp">
+                                    <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Featured Pastries End -->
+
+
+        <!-- Special Offer Banner Start-->
+        <div class="container-fluid banner bg-secondary my-5">
+            <div class="container py-5">
+                <div class="row g-4 align-items-center">
+                    <div class="col-lg-6">
+                        <div class="py-4">
+                            <h1 class="display-3 text-white">Freshly Baked Delights</h1>
+                            <p class="fw-normal display-3 text-dark mb-4">Every Morning</p>
+                            <p class="mb-4 text-dark">Start your day right with our artisan pastries, made from scratch using the finest ingredients. Perfect with your morning coffee or tea.</p>
+                            <a href="shop.html" class="banner-btn btn border-2 border-white rounded-pill text-dark py-3 px-5">SHOP NOW</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="position-relative">
+                            <img src="img/banner.jpg" class="img-fluid w-100 rounded" alt="Special Cake Offer">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Special Offer Banner End -->
+
+
+        <!-- Bestseller Products Start -->
+        <div class="container-fluid py-5">
+            <div class="container py-5">
+                <div class="text-center mx-auto mb-5" style="max-width: 700px;">
+                    <h1 class="display-4">Customer Favorites</h1>
+                    <p>Discover our most loved pastries, rated 4+ stars by hundreds of satisfied customers. Freshly baked daily with love and care.</p>
+                </div>
+                <div class="row g-4">
+                    <!-- Butter Croissant -->
+                    <div class="col-lg-6 col-xl-4">
+                        <div class="p-4 rounded bg-light">
+                            <div class="row align-items-center">
+                                <div class="col-6">
+                                    <img src="img/pastry-item-1.jpg" class="img-fluid rounded-circle w-100" alt="Butter Croissant">
+                                </div>
+                                <div class="col-6">
+                                    <a href="#" class="h5">Butter Croissant</a>
+                                    <div class="d-flex my-3">
+                                        <i class="fas fa-star text-primary"></i>
+                                        <i class="fas fa-star text-primary"></i>
+                                        <i class="fas fa-star text-primary"></i>
+                                        <i class="fas fa-star text-primary"></i>
+                                        <i class="fas fa-star-half-alt text-primary"></i>
+                                    </div>
+                                    <h4 class="mb-3">85 Birr</h4>
+                                    <button class="btn border border-secondary rounded-pill px-3 text-primary add-to-cart-btn" 
+                                            data-id="2" 
+                                            data-name="Butter Croissant" 
+                                            data-price="85" 
+                                            data-image="img/pastry-item-1.jpg">
+                                        <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Fudge Brownie -->
+                    <div class="col-lg-6 col-xl-4">
+                        <div class="p-4 rounded bg-light">
+                            <div class="row align-items-center">
+                                <div class="col-6">
+                                    <img src="img/brownie-item.jpg" class="img-fluid rounded-circle w-100" alt="Fudge Brownie">
+                                </div>
+                                <div class="col-6">
+                                    <a href="#" class="h5">Fudge Brownie</a>
+                                    <div class="d-flex my-3">
+                                        <i class="fas fa-star text-primary"></i>
+                                        <i class="fas fa-star text-primary"></i>
+                                        <i class="fas fa-star text-primary"></i>
+                                        <i class="fas fa-star text-primary"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <h4 class="mb-3">95 Birr</h4>
+                                    <button class="btn border border-secondary rounded-pill px-3 text-primary add-to-cart-btn" 
+                                            data-id="13" 
+                                            data-name="Fudge Brownie" 
+                                            data-price="95" 
+                                            data-image="img/brownie-item.jpg">
+                                        <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- French Macarons -->
+                    <div class="col-lg-6 col-xl-4">
+                        <div class="p-4 rounded bg-light">
+                            <div class="row align-items-center">
+                                <div class="col-6">
+                                    <img src="img/macaron-item-1.avif" class="img-fluid rounded-circle w-100" alt="French Macarons">
+                                </div>
+                                <div class="col-6">
+                                    <a href="#" class="h5">French Macarons</a>
+                                    <div class="d-flex my-3">
+                                        <i class="fas fa-star text-primary"></i>
+                                        <i class="fas fa-star text-primary"></i>
+                                        <i class="fas fa-star text-primary"></i>
+                                        <i class="fas fa-star text-primary"></i>
+                                        <i class="fas fa-star text-primary"></i>
+                                    </div>
+                                    <h4 class="mb-3">280 Birr</h4>
+                                    <button class="btn border border-secondary rounded-pill px-3 text-primary add-to-cart-btn" 
+                                            data-id="10" 
+                                            data-name="French Macarons" 
+                                            data-price="280" 
+                                            data-image="img/macaron-item-1.avif">
+                                        <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Blueberry Muffin -->
+                    <div class="col-lg-6 col-xl-4">
+                        <div class="p-4 rounded bg-light">
+                            <div class="row align-items-center">
+                                <div class="col-6">
+                                    <img src="img/muffin-item.JPG" class="img-fluid rounded-circle w-100" alt="Blueberry Muffin">
+                                </div>
+                                <div class="col-6">
+                                    <a href="#" class="h5">Blueberry Muffin</a>
+                                    <div class="d-flex my-3">
+                                        <i class="fas fa-star text-primary"></i>
+                                        <i class="fas fa-star text-primary"></i>
+                                        <i class="fas fa-star text-primary"></i>
+                                        <i class="fas fa-star text-primary"></i>
+                                        <i class="fas fa-star-half-alt text-primary"></i>
+                                    </div>
+                                    <h4 class="mb-3">75 Birr</h4>
+                                    <button class="btn border border-secondary rounded-pill px-3 text-primary add-to-cart-btn" 
+                                            data-id="15" 
+                                            data-name="Blueberry Muffin" 
+                                            data-price="75" 
+                                            data-image="img/muffin-item.JPG">
+                                        <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- New York Cheesecake -->
+                    <div class="col-lg-6 col-xl-4">
+                        <div class="p-4 rounded bg-light">
+                            <div class="row align-items-center">
+                                <div class="col-6">
+                                    <img src="img/cheesecake-item.webp" class="img-fluid rounded-circle w-100" alt="New York Cheesecake">
+                                </div>
+                                <div class="col-6">
+                                    <a href="#" class="h5">New York Cheesecake</a>
+                                    <div class="d-flex my-3">
+                                        <i class="fas fa-star text-primary"></i>
+                                        <i class="fas fa-star text-primary"></i>
+                                        <i class="fas fa-star text-primary"></i>
+                                        <i class="fas fa-star text-primary"></i>
+                                        <i class="fas fa-star-half-alt text-primary"></i>
+                                    </div>
+                                    <h4 class="mb-3">520 Birr</h4>
+                                    <button class="btn border border-secondary rounded-pill px-3 text-primary add-to-cart-btn" 
+                                            data-id="12" 
+                                            data-name="New York Cheesecake" 
+                                            data-price="520" 
+                                            data-image="img/cheesecake-item.webp">
+                                        <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Chocolate Chip Cookie -->
+                    <div class="col-lg-6 col-xl-4">
+                        <div class="p-4 rounded bg-light">
+                            <div class="row align-items-center">
+                                <div class="col-6">
+                                    <img src="img/pastry-item-3.jpg" class="img-fluid rounded-circle w-100" alt="Chocolate Chip Cookie">
+                                </div>
+                                <div class="col-6">
+                                    <a href="#" class="h5">Chocolate Chip Cookie</a>
+                                    <div class="d-flex my-3">
+                                        <i class="fas fa-star text-primary"></i>
+                                        <i class="fas fa-star text-primary"></i>
+                                        <i class="fas fa-star text-primary"></i>
+                                        <i class="fas fa-star text-primary"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <h4 class="mb-3">90 Birr</h4>
+                                    <button class="btn border border-secondary rounded-pill px-3 text-primary add-to-cart-btn" 
+                                            data-id="5" 
+                                            data-name="Chocolate Chip Cookie" 
+                                            data-price="90" 
+                                            data-image="img/pastry-item-3.jpg">
+                                        <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Bestseller Products End -->
+
+
+        <!-- Bakery Stats Start -->
+        <div class="container-fluid py-5">
+            <div class="container">
+                <div class="bg-light p-5 rounded">
+                    <div class="text-center mx-auto mb-5" style="max-width: 700px;">
+                        <h2 class="text-primary mb-3">Our Bakery By The Numbers</h2>
+                        <p class="mb-0">Quality, passion, and dedication reflected in every statistic</p>
+                    </div>
+                    <div class="row g-4 justify-content-center">
+                        <div class="col-md-6 col-lg-6 col-xl-3">
+                            <div class="counter bg-white rounded p-5">
+                                <i class="fas fa-heart text-secondary"></i>
+                                <h4>Happy Customers</h4>
+                                <h1>2,450+</h1>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-6 col-xl-3">
+                            <div class="counter bg-white rounded p-5">
+                                <i class="fas fa-star text-secondary"></i>
+                                <h4>Average Rating</h4>
+                                <h1>4.8/5</h1>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-6 col-xl-3">
+                            <div class="counter bg-white rounded p-5">
+                                <i class="fas fa-cookie-bite text-secondary"></i>
+                                <h4>Treats Created</h4>
+                                <h1>15,000+</h1>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-6 col-xl-3">
+                            <div class="counter bg-white rounded p-5">
+                                <i class="fas fa-clock text-secondary"></i>
+                                <h4>Years Serving</h4>
+                                <h1>8+</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Bakery Stats End -->
+
+
+        <!-- Footer Start -->
+        <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5">
+            <div class="container py-5">
+                <div class="pb-4 mb-4" style="border-bottom: 1px solid rgba(218, 165, 32, 0.5) ;">
+                    <div class="row g-4">
+                        <div class="col-lg-3">
+                            <a href="index.html">
+                                <h1 class="text-primary mb-0">Bethy's Pastries</h1>
+                                <p class="text-secondary mb-0">Artisan Bakery & Online Store</p>
+                            </a>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="position-relative mx-auto">
+                                <input class="form-control border-0 w-100 py-3 px-4 rounded-pill" type="email" placeholder="Your Email Address" id="newsletterEmail">
+                                <button type="submit" class="btn btn-primary border-0 border-secondary py-3 px-4 position-absolute rounded-pill text-white" style="top: 0; right: 0;" id="subscribeBtn">Subscribe</button>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="d-flex justify-content-end pt-3">
+                                <a class="btn btn-outline-secondary me-2 btn-md-square rounded-circle" href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-outline-secondary me-2 btn-md-square rounded-circle" href="#"><i class="fab fa-instagram"></i></a>
+                                <a class="btn btn-outline-secondary me-2 btn-md-square rounded-circle" href="#"><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-outline-secondary btn-md-square rounded-circle" href="#"><i class="fab fa-tiktok"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-5">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-item">
+                            <h4 class="text-light mb-3">Our Bakery Story</h4>
+                            <p class="mb-4">Founded with a passion for traditional baking, Bethy's Pastries brings you the finest artisan treats made with love and the highest quality ingredients. Every bite tells a story of craftsmanship.</p>
+                            <a href="about.html" class="btn border-secondary py-2 px-4 rounded-pill text-primary">Our Story</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="d-flex flex-column text-start footer-item">
+                            <h4 class="text-light mb-3">Quick Links</h4>
+                            <a class="btn-link" href="index.html">Home</a>
+                            <a class="btn-link" href="shop.html">Our Pastries</a>
+                            <a class="btn-link" href="about.html">About Us</a>
+                            <a class="btn-link" href="contact.html">Contact Us</a>
+                            <a class="btn-link" href="#">Delivery Info</a>
+                            <a class="btn-link" href="#">FAQs</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="d-flex flex-column text-start footer-item">
+                            <h4 class="text-light mb-3">Customer Care</h4>
+                            <a class="btn-link" href="cart.html">My Cart</a>
+                            <a class="btn-link" href="checkout.html">Checkout</a>
+                            <a class="btn-link" href="#">Order Tracking</a>
+                            <a class="btn-link" href="#">Return Policy</a>
+                            <a class="btn-link" href="#">Privacy Policy</a>
+                            <a class="btn-link" href="#">Terms & Conditions</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-item">
+                            <h4 class="text-light mb-3">Contact Info</h4>
+                            <p><i class="fas fa-map-marker-alt me-2 text-secondary"></i> Addis Ababa, Ethiopia</p>
+                            <p><i class="fas fa-envelope me-2 text-secondary"></i> orders@bethyspastries.com</p>
+                            <p><i class="fas fa-phone me-2 text-secondary"></i> +251 911 234 567</p>
+                            <p><i class="fas fa-clock me-2 text-secondary"></i> Mon-Sat: 7AM - 8PM</p>
+                            <p class="mt-3">We Accept</p>
+                            <img src="img/payment-methods.png" class="img-fluid" alt="Payment Methods">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End -->
+
+        <!-- Copyright Start -->
+        <div class="container-fluid copyright bg-dark py-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        <span class="text-light"><a href="#"><i class="fas fa-copyright text-light me-2"></i>Bethy's Pastries</a>, All rights reserved. 2024</span>
+                    </div>
+                    <div class="col-md-6 my-auto text-center text-md-end text-white">
+                        <!--/*** The author's attribution link must remain intact in the template. ***/-->
+                        <!--/*** If you wish to remove this credit link, please purchase the Pro Version . ***/-->
+                        Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Copyright End -->
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-primary border-3 border-primary rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>
+        
+        <!-- Toast Notification Container -->
+        <div id="toastContainer" class="position-fixed" style="top: 100px; right: 30px; z-index: 9999;"></div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+    </body>
+
+</html>
